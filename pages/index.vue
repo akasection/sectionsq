@@ -86,7 +86,7 @@ export default {
 <style lang="stylus">
 @font-face
   font-family QuarcaCondThin
-  src url('~static/quarcacondthin.otf')
+  src url('~assets/fonts/quarcacondthin.otf')
 .sq-background
   height 100vh
   width 100vw
