@@ -114,6 +114,7 @@ export default {
 
   &:hover
     text-shadow 0 0 3px rgba(78, 227, 254, 1)
+    letter-spacing 0.27em
 
   &.l-1:after
     content '.'

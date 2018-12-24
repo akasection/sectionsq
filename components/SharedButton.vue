@@ -9,6 +9,9 @@
     a(href="https://github.com/Axection" target="_blank")
       .sq-button.gh
         img(src="~assets/gh.png" width="16" height="16")
+    a(href="https://soundcloud.com/section" target="_blank")
+      .sq-button.sc
+        img(src="~assets/sc.png" width="16" height="16")
 </template>
 
 <script>
@@ -84,4 +87,7 @@ export default {
   &.gh
     background-color black
     border-color #fbfbfb
+  &.sc
+    background-color #ff7700
+    border-color #ffb26a
 </style>

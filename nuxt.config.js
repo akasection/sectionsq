@@ -7,14 +7,21 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'SECTIONsq | Minimal',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: pkg.description },
+      { name: 'msapplication-tooltip', content: 'SECTIONsq' },
+      { name: 'google', content: 'notranslate, nositelinkssearchbox' },
+      { name: 'apple-mobile-web-app-title', content: 'SECTIONsq' },
+      { property: 'og:image', content: '/og_image.png' },
+      { property: 'og:title', content: 'SECTIONsq' },
+      { hid: 'og:description', property: 'twitter:description', content: pkg.description },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { href: 'https://section.esque.id/', rel: 'canonical' },
     ]
   },
 
