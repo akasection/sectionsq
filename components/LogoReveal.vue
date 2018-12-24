@@ -77,7 +77,7 @@ export default {
 <style lang="stylus" scoped>
 @font-face
   font-family QuarcaCondBook
-  src url('~assets/fonts/quarcacondbook.otf')
+  src url('~assets/font/quarcacondbook.otf')
 
 .logo
   transform translate3d(0, -2.25vh, 0)
