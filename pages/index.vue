@@ -4,18 +4,22 @@
       Spawner
     Rotator(:deg="rotation" shift="0,-15px,0" :scale="1+0.08*(scale)" :stop="stopStatus" @imdone="doSwitch" @outting="startShow = true")
     Rotator(:deg="-rotation+45" :reverse="true" shift="0,-15px,0" :scale="1.08-0.08*(scale)" :stop="stopStatus")
+
     transition(name="fade" mode="out-in")
-      component(:is="logoComponent")
+      Logo(v-if="showLogo")
+
+    LogoReveal(v-if="showReveal")
     transition(name="fade")
-      span.sq-loading(ref="loader" :class="'l-' + iterator" v-if="!startShow") Now Loading
+      span.sq-loading(ref="loader" v-if="!startShow"  @click="goNext") {{ text }}
 
 
     template(v-if="DEBUGGER")
-      button(style="position: fixed; left: 10px; top: 10px;" @click="goNext" ) HELLO NIGGA
+      button(style="position: fixed; left: 10px; top: 10px;" @click="goNext") HELLO NIGGA
 </template>
 
 <script>
 import { TimelineLite, CSSPlugin } from 'gsap/all';
+import { timeWait } from '~/func/shared';
 import Logo from '~/components/Logo'
 import LogoReveal from '~/components/LogoReveal'
 import Spawner from '~/components/Spawner'
@@ -31,24 +35,28 @@ export default {
     Spawner,
   },
   data: () => ({
-    DEBUGGER: true,
+    DEBUGGER: false,
     rotation: 0,
     scale: 0,
     iterator: 0,
     timeline: null,
     color: 'black',
     stopStatus: false,
-    logoComponent: 'Logo',
+    showLogo: true,
+    showReveal: false,
     iteratorFunction: null,
     startShow: false,
     startFadeIn: false,
+    text: '【 Enter 】',
   }),
   watch: {
     stopStatus(val) {
       if (!val) return;
     },
-    startFadeIn() {
-      this.logoComponent = 'LogoReveal';
+    async startFadeIn() {
+      this.showLogo = false;
+      await timeWait(3600);
+      this.showReveal = true;
     },
     startShow(val) {
       clearInterval(this.iteratorFunction);
@@ -57,14 +65,14 @@ export default {
   async mounted() {
     await this.$nextTick();
     const { loader } = this.$refs;
-    this.iteratorFunction = setInterval( () => {
-      this.iterator = (this.iterator + 1) % 4;
-    }, 800);
+    // this.iteratorFunction = setInterval( () => {
+    //   this.iterator = (this.iterator + 1) % 4;
+    // }, 800);
   },
   methods: {
     goNext() {
       this.stopStatus = true;
-
+      this.text = '- Entering -';
     },
     doSwitch() {
       console.log('mari start fadeoin disini');
@@ -100,8 +108,12 @@ export default {
   font-family QuarcaCondThin
   font-size 18px
   letter-spacing 0.26em
-  pointer-events none
+  cursor pointer
   filter drop-shadow(0 0 4px rgba(78, 227, 254, 1))
+  transition all 185ms linear
+
+  &:hover
+    text-shadow 0 0 3px rgba(78, 227, 254, 1)
 
   &.l-1:after
     content '.'

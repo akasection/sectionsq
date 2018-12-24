@@ -5,6 +5,7 @@
 
 <script>
 import { TimelineLite, CSSPlugin } from 'gsap/all';
+import { timeWait } from '~/func/shared';
 const colors = [
   '#ffd7d7dd', // red,
   '#64f7f7dd', // blue
@@ -20,16 +21,16 @@ export default {
   async mounted() {
     const { rectsq } = this.$refs;
     await this.$nextTick();
-    // this.timeline = new TimelineLite({
-    //   onComplete: () => this.timeline.restart(),
-    // });
-    // this.timeline.to(rectsq, 2, {
-    //   css: { borderColor: '#ffd7d7' },
-    // }).to(rectsq, 2, {
-    //   css: { borderColor: '#fff9d8' },
-    // }).to(rectsq, 2, {
-    //   css: { borderColor: '#4ee3fe' },
-    // });
+    this.timeline = new TimelineLite({
+    });
+    this.timeline.from(rectsq, 1.34, {
+      scale: 0.9,
+      opacity: 0,
+      rotation: 0,
+    });
+    await timeWait(865);
+    console.log('hey');
+    this.$emit('imdone', this);
   },
 }
 </script>
@@ -49,9 +50,9 @@ export default {
   justify-content center
   align-items center
 
-  transition transform 385ms cubic-bezier(0.55, 0.01, 0.31, 0.96)
-  &:hover
-    transform scale(1.01)
+  // transition transform 385ms cubic-bezier(0.55, 0.01, 0.31, 0.96)
+  // &:hover
+  //   transform scale(1.01)
   // transition transform 1100ms cubic-bezier(0, 0.37, 0.31, 1), scale 350ms linear
   &.glow
     box-shadow 0 0 42px 3px rgba(78,227,254,0.331),

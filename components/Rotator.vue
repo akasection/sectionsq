@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import { TimelineLite, TweenLite } from 'gsap/all';
+import { TimelineLite, CSSPlugin } from 'gsap/all';
+import { timeWait } from '~/func/shared';
 const scaleFactor = 0.09;
 const oF = 0.8;
 export default {
