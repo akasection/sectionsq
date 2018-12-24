@@ -17,7 +17,7 @@ module.exports = {
       { name: 'apple-mobile-web-app-title', content: 'SECTIONsq' },
       { property: 'og:image', content: 'http://section.esque.id/og_image.png' },
       { property: 'og:title', content: 'SECTIONsq' },
-      { hid: 'og:description', property: 'twitter:description', content: pkg.description },
+      { hid: 'og:description', property: 'og:description', content: pkg.description },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
