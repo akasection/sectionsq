@@ -16,14 +16,14 @@ module.exports = {
       { name: 'google', content: 'notranslate, nositelinkssearchbox' },
       { name: 'apple-mobile-web-app-title', content: 'SECTIONsq' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'http://section.esque.id' },
-      { property: 'og:image', content: 'http://section.esque.id/og_image.png' },
+      { property: 'og:url', content: 'https://section.esque.id' },
+      { property: 'og:image', content: 'https://section.esque.id/og_image.png' },
       { property: 'og:title', content: 'SECTIONsq' },
       { property: 'og:description', content: pkg.description },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { href: 'http://section.esque.id/', rel: 'canonical' },
+      { href: 'https://section.esque.id/', rel: 'canonical' },
     ]
   },
 
