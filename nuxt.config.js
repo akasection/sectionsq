@@ -20,6 +20,7 @@ module.exports = {
       { property: 'og:image', content: 'https://section.esque.id/og_image.png' },
       { property: 'og:title', content: 'SECTIONsq' },
       { property: 'og:description', content: pkg.description },
+      { name: 'p:domain_verify', content: 'e1e21a3027431d7ca6e4dcfd70fc7a3f'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
