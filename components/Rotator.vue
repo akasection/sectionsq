@@ -41,7 +41,7 @@ export default {
   },
   watch: {
     stop() {
-      console.log("BELOOOOOGOO");
+      console.log("Done.");
     },
   },
   async mounted(){
@@ -57,7 +57,7 @@ export default {
           opacity: 0,
           rotation: '+= 90',
           onComplete: () => {
-            console.log('tae');
+            // console.log('tae');
             this.$emit('imdone');
           },
         });

@@ -29,7 +29,7 @@ export default {
       rotation: 0,
     });
     await timeWait(865);
-    console.log('hey');
+    console.log('Prepared to see SECTION');
     this.$emit('imdone', this);
   },
 }
@@ -59,4 +59,16 @@ export default {
       0 0 6px 0px rgba(78,227,254,0.549),
       inset 0 0 20px 5px rgba(78,227,254,0.231),
       inset 0 0 8px 0px rgba(78,227,254,0.549)
+
+@media (max-width: 1023px)
+  .sq-rect
+    width 80vw
+    height 80vw
+
+@media (max-width: 481px)
+  .sq-rect
+    width 95vw
+    height 95vw
+
+
 </style>

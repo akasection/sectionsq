@@ -52,7 +52,7 @@ export default {
   methods: {
     doAnimate(){
       const { logo, shadower, section, desc } = this.$refs;
-      console.log('COK0');
+      console.log("Entering SECTION");
       this.timeline = new TimelineLite({
         onComplete: () => this.animationState = true,
       });
@@ -75,14 +75,25 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@font-face
-  font-family QuarcaCondBook
-  src url('~assets/font/quarcacondbook.otf')
-
 .logo
   transform translate3d(0, -2.25vh, 0)
   text-align center
   z-index 2
+@media (max-width: 1023px) // desktop
+  .logo
+    transform translate3d(0, -2.25vh, 0) scale(0.85)
+@media (max-width: 768px) // ipad
+  .logo
+    transform translate3d(0, -2.25vh, 0) scale(1.25)
+@media (max-width: 481px) // modern handheld
+  .logo
+    transform translate3d(0, -1.75vh, 0) scale(0.82)
+@media (max-width: 375px) //iphone
+  .logo
+    transform translate3d(0, -1.25vh, 0) scale(0.75)
+@media (max-width: 320px) // small phone
+  .logo
+    transform translate3d(0, -0.75vh, 0) scale(0.65)
 
 .sq-logo
   width 320px
@@ -103,7 +114,8 @@ export default {
 
 .sq-section
   line-height 1.2
-  font-family QuarcaCondBook
+  font-family Quarca
+  font-style bold
   font-size 72px
   color #5a5a5a
   letter-spacing 0.09em
@@ -111,7 +123,8 @@ export default {
 
 .sq-description
   line-height 0.3
-  font-family QuarcaCondBook
+  font-family Quarca
+  font-style bold
   font-size 18px
   letter-spacing 0.09em
   text-shadow 0 0 5px rgba(255, 90, 90, 0.08)

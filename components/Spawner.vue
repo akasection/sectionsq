@@ -21,9 +21,9 @@ export default {
     const bgCount = getRandomInt(30, 55);
     const mdCount = getRandomInt(15, 25);
     const fgCount = getRandomInt(5, 8);
-    console.log(bgCount, mdCount, fgCount);
+    // console.log(bgCount, mdCount, fgCount);
     await timeWait(1300);
-    console.log('bgsd');
+    // console.log('bgsd');
     this.spawnItems(this.indexer, fgCount, 'fg');
     this.spawnItems(this.indexer, mdCount, 'md');
     this.spawnItems(this.indexer, bgCount, 'bg');

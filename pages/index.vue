@@ -10,7 +10,7 @@
 
     LogoReveal(v-if="showReveal")
     transition(name="fade")
-      span.sq-loading(ref="loader" v-if="!startShow"  @click="goNext") {{ text }}
+      span.sq-loading(ref="loader" v-if="!startShow" :disabled="preloadComplete" @click="goNext" :class="{ 'loading': !preloadComplete }") {{ text }}
 
 
     template(v-if="DEBUGGER")
@@ -18,8 +18,9 @@
 </template>
 
 <script>
+import loadImage from 'image-promise';
 import { TimelineLite, CSSPlugin } from 'gsap/all';
-import { timeWait } from '~/func/shared';
+import { timeWait, r } from '~/func/shared';
 import Logo from '~/components/Logo'
 import LogoReveal from '~/components/LogoReveal'
 import Spawner from '~/components/Spawner'
@@ -47,7 +48,9 @@ export default {
     iteratorFunction: null,
     startShow: false,
     startFadeIn: false,
-    text: '【 Enter 】',
+    text: 'Loading',
+    preloadImages: null,
+    preloadComplete: false,
   }),
   watch: {
     stopStatus(val) {
@@ -60,14 +63,34 @@ export default {
     },
     startShow(val) {
       clearInterval(this.iteratorFunction);
+    },
+    async preloadImages(val) {
+      let preloadPromise = [];
+      val.forEach( item => preloadPromise.push(loadImage(item)));
+      const preloadResponse = await Promise.all(preloadPromise);
+      // console.log(preloadResponse);
+      this.text = "【 Enter 】";
+      this.preloadComplete = true;
     }
   },
   async mounted() {
     await this.$nextTick();
     const { loader } = this.$refs;
-    // this.iteratorFunction = setInterval( () => {
-    //   this.iterator = (this.iterator + 1) % 4;
-    // }, 800);
+    // Loads all neccessary images
+    const imagePreloaderPromise = [
+      import("~/assets/fb.png"),
+      import("~/assets/fb.svg"),
+      import("~/assets/gh.png"),
+      import("~/assets/logo.png"),
+      import("~/assets/sc.png"),
+      import("~/assets/si-logo-thicc.png"),
+    ];
+    this.preloadImages = (await Promise.all(imagePreloaderPromise)).map(
+      item => item.default
+    );
+    this.iteratorFunction = setInterval( () => {
+      this.iterator = (this.iterator + 1) % 4;
+    }, 800);
   },
   methods: {
     goNext() {
@@ -75,7 +98,7 @@ export default {
       this.text = '- Entering -';
     },
     doSwitch() {
-      console.log('mari start fadeoin disini');
+      console.log('Loading completed.');
       this.startFadeIn = true;
       this.color = 'white';
     }
@@ -84,9 +107,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@font-face
-  font-family QuarcaCondThin
-  src url('~assets/font/quarcacondthin.otf')
 .sq-background
   height 100vh
   width 100vw
@@ -105,12 +125,16 @@ export default {
   color white
   position absolute
   transform translate(0, 95px)
-  font-family QuarcaCondThin
+  font-family Quarca
+  font-style normal
   font-size 18px
   letter-spacing 0.26em
   cursor pointer
   filter drop-shadow(0 0 4px rgba(78, 227, 254, 1))
   transition all 185ms linear
+
+  .loading
+    opacity 0.6
 
   &:hover
     text-shadow 0 0 3px rgba(78, 227, 254, 1)
