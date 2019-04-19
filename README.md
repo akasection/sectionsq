@@ -2,6 +2,9 @@
 
 > SECTION Minimal Square Homepage
 
+## Build Status
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c90806a4-e2c8-4a62-bb02-7b97374e1135/deploy-status)](https://app.netlify.com/sites/akasection/deploys)
+
 ## Build Setup
 
 ``` bash
