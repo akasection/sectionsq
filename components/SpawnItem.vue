@@ -1,5 +1,5 @@
 <template lang="pug">
-  .sq-uare(:style="variance" ref="square")
+  svg.sq-uare(:style="variance" ref="square")
 </template>
 
 <script>
