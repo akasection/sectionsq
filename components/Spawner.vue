@@ -1,6 +1,12 @@
 <template lang="pug">
-  .sq-spawner
-    SpawnItem(v-for="(item) in indexer" @imdone="spawnItem(item.key, item)" :key="item.index" :position="item.key" :anchor="anchor")
+.sq-spawner
+  SpawnItem(
+    v-for="item in indexer"
+    @imdone="spawnItem(item.key, item)"
+    :key="item.index"
+    :position="item.key"
+    :anchor="anchor"
+  )
 </template>
 
 <script>
@@ -29,7 +35,8 @@ export default {
     this.spawnItems(this.indexer, bgCount, 'bg');
   },
   methods: {
-    async spawnItem(array, item) { // reuse item index
+    async spawnItem(array, item) {
+      // reuse item index
       const arr = this.indexer.filter(selected => selected.index !== item.index);
       this.indexer = arr;
       await this.$nextTick();
@@ -41,21 +48,19 @@ export default {
     },
     async spawnItems(array, startCount, key) {
       if (startCount === 0) return;
-      this.indexer.push({ key,
-        index: `${Date.now()}${key}` });
+      this.indexer.push({ key, index: `${Date.now()}${key}` });
       await timeWait(getRandomInt(250, 1000));
-      return this.spawnItems(array, startCount - 1, key);
-    }
+      this.spawnItems(array, startCount - 1, key);
+    },
   },
-
 };
 </script>
 
 <style lang="stylus" scoped>
-.sq-spawner
-  position fixed
-  width 100%
-  height 100%
-  transition transform 1110ms cubic-bezier(0.55, 0.01, 0.31, 0.96)
-
+.sq-spawner {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  transition: transform 1110ms cubic-bezier(0.55, 0.01, 0.31, 0.96);
+}
 </style>

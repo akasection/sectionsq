@@ -1,5 +1,5 @@
 <template lang="pug">
-  svg.sq-uare(:style="variance" ref="square")
+svg.sq-uare(:style="variance" ref="square")
 </template>
 
 <script>
@@ -20,9 +20,10 @@ const colorCycle = [
   '#b5b5b555', // gray
   '#b7edff66', // dark blue
   '#b7edff66', // dark blue
-  '#ffa2a266' // dark red
+  '#ffa2a266', // dark red
 ];
-const APosition = ['fg', 'md', 'bg'];
+// const APosition = ['fg', 'md', 'bg'];
+
 export default {
   name: 'SpawnItem',
   props: {
@@ -33,7 +34,7 @@ export default {
     anchor: {
       type: Number,
       default: 50,
-    }
+    },
   },
 
   data: () => ({
@@ -54,13 +55,14 @@ export default {
       `;
     },
     getBaseScale() {
-      const scale = { // baseScale, lower deviation, higher deviation
+      const scale = {
+        // baseScale, lower deviation, higher deviation
         fg: [1, 2.25],
         md: [0.5, 1.25],
         bg: [0.2, 0.6],
       };
       return scale[this.position];
-    }
+    },
   },
   async mounted() {
     const { square } = this.$refs;
@@ -72,21 +74,31 @@ export default {
       },
     });
     this.timeline
-      .fromTo(square, this.duration / 2000, {
-        opacity: 0,
-        scale: this.size,
-      },
-      {
-        opacity: 1,
-      }, 'baseStart')
+      .fromTo(
+        square,
+        this.duration / 2000,
+        {
+          opacity: 0,
+          scale: this.size,
+        },
+        {
+          opacity: 1,
+        },
+        'baseStart'
+      )
       .to(square, this.duration / 2000, {
         opacity: 0,
       })
-      .to(square, this.duration / 1000, {
-        scale: this.size + getRandomReal(0, this.getBaseScale[0]),
-        x: `+= ${(this.x - this.anchor) * this.accelerator}px`,
-        y: `+= ${(this.y - this.anchor) * this.accelerator}px`,
-      }, 'baseStart');
+      .to(
+        square,
+        this.duration / 1000,
+        {
+          scale: this.size + getRandomReal(0, this.getBaseScale[0]),
+          x: `+= ${(this.x - this.anchor) * this.accelerator}px`,
+          y: `+= ${(this.y - this.anchor) * this.accelerator}px`,
+        },
+        'baseStart'
+      );
   },
   methods: {
     instantiate() {
@@ -102,13 +114,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.sq-uare
-  width 64px
-  height 64px
-  position fixed
+.sq-uare {
+  width: 64px;
+  height: 64px;
+  position: fixed;
   // border-style solid
   // border-color black
   // border-width 2px
-  top 0
-  left 0
+  top: 0;
+  left: 0;
+}
 </style>
