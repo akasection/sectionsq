@@ -16,7 +16,7 @@ import { timeWait } from '~/func/shared';
 export default {
   name: 'Rectsq',
   data: () => ({
-    timeline: null,
+    timeline: gsap.timeline(),
   }),
   async mounted() {
     const { rectsq } = this.$refs;

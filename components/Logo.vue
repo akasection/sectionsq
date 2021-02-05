@@ -1,6 +1,6 @@
 <template lang="pug">
-  .logo
-    .sq-logo(ref="logo" :class="dropShadow")
+.logo
+  .sq-logo(ref="logo" :class="dropShadow")
 </template>
 
 <script>
@@ -12,15 +12,13 @@ export default {
     switched: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   data: () => ({
-    timeline: null,
+    timeline: gsap.timeline(),
     dropShadow: 'glow',
   }),
-  computed: {
-
-  },
+  computed: {},
   watch: {
     switched() {
       // TODO: fade out current, change background-image, fade in with rescale
@@ -40,19 +38,25 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.logo
-  z-index 2
-.sq-logo
-  width 100px
-  height 100px
-  background-image url('~assets/logo.png')
-  background-size cover
-  transition filter 350ms linear
-  z-index 3
-  transform translate(0, -15px)
+.logo {
+  z-index: 2;
+}
 
-  &.glow
-    filter drop-shadow(0 0px 4px rgba(78, 227, 254, 0.48) )
-  &.bright
-    filter drop-shadow(0 0 20px white)
+.sq-logo {
+  width: 100px;
+  height: 100px;
+  background-image: url('~assets/logo.png');
+  background-size: cover;
+  transition: filter 350ms linear;
+  z-index: 3;
+  transform: translate(0, -15px);
+
+  &.glow {
+    filter: drop-shadow(0 0px 4px rgba(78, 227, 254, 0.48));
+  }
+
+  &.bright {
+    filter: drop-shadow(0 0 20px white);
+  }
+}
 </style>

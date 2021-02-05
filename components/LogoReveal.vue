@@ -32,7 +32,7 @@ export default {
     },
   },
   data: () => ({
-    timeline: null,
+    timeline: gsap.timeline(),
     dropShadow: 'bright',
     animationState: false,
   }),
@@ -115,31 +115,31 @@ export default {
   .logo {
     transform: translate3d(0, -2.25vh, 0) scale(0.85);
   }
-} // desktop
+}
 
 @media (max-width: 768px) {
   .logo {
     transform: translate3d(0, -2.25vh, 0) scale(1.25);
   }
-} // ipad
+}
 
 @media (max-width: 481px) {
   .logo {
     transform: translate3d(0, -1.75vh, 0) scale(0.82);
   }
-} // modern handheld
+}
 
 @media (max-width: 375px) {
   .logo {
     transform: translate3d(0, -1.25vh, 0) scale(0.75);
   }
-} // iphone
+}
 
 @media (max-width: 320px) {
   .logo {
     transform: translate3d(0, -0.75vh, 0) scale(0.65);
   }
-} // small phone
+}
 
 .sq-logo {
   width: 320px;

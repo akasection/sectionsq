@@ -44,7 +44,7 @@ export default {
     size: 1,
     accelerator: 1,
     duration: 1000,
-    timeline: null,
+    timeline: gsap.timeline(),
   }),
   computed: {
     variance() {
