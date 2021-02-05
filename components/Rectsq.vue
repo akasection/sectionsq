@@ -4,15 +4,15 @@
 </template>
 
 <script>
-import { TimelineLite, CSSPlugin } from 'gsap/all';
+import { gsap } from 'gsap';
 import { timeWait } from '~/func/shared';
+
 const colors = [
   '#ffd7d7dd', // red,
   '#64f7f7dd', // blue
   '#b8f59788', // green
   '#fff9d8dd', // yellow
 ];
-const plugin = [ CSSPlugin ];
 export default {
   name: 'Rectsq',
   data: () => ({
@@ -21,8 +21,7 @@ export default {
   async mounted() {
     const { rectsq } = this.$refs;
     await this.$nextTick();
-    this.timeline = new TimelineLite({
-    });
+    this.timeline = gsap.timeline();
     this.timeline.from(rectsq, 1.34, {
       scale: 0.9,
       opacity: 0,
@@ -32,7 +31,7 @@ export default {
     console.log('Prepared to see SECTION');
     this.$emit('imdone', this);
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>
@@ -69,6 +68,5 @@ export default {
   .sq-rect
     width 95vw
     height 95vw
-
 
 </style>

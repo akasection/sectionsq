@@ -15,10 +15,8 @@
 </template>
 
 <script>
-import { TimelineLite, TweenLite } from 'gsap/all';
+import { gsap } from 'gsap';
 import { timeWait } from '~/func/shared';
-
-const plugin = [ CSSPlugin ];
 
 export default {
   name: 'SharerCollection',
@@ -29,8 +27,8 @@ export default {
     }
   },
   watch: {
-    startAnimation(val){
-      if(!val) return;
+    startAnimation(val) {
+      if (!val) return;
       this.doAnimate();
     }
   },
@@ -38,13 +36,13 @@ export default {
     async doAnimate() {
       const { sharer } = this.$refs;
       await this.$nextTick();
-      this.timeline = new TimelineLite();
+      this.timeline = gsap.timeline();
       this.timeline.to(sharer, 1.333, {
         opacity: 1
       });
     },
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>

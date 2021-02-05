@@ -1,11 +1,11 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
 module.exports = {
-  mode: 'spa',
-
   /*
   ** Headers of the page
   */
+  target: 'static',
+  ssr: false,
   head: {
     title: 'SECTIONsq | Minimal',
     meta: [
@@ -20,7 +20,7 @@ module.exports = {
       { property: 'og:image', content: 'https://section.esque.id/og_image.png' },
       { property: 'og:title', content: 'SECTIONsq' },
       { property: 'og:description', content: pkg.description },
-      { name: 'p:domain_verify', content: 'e1e21a3027431d7ca6e4dcfd70fc7a3f'},
+      { name: 'p:domain_verify', content: 'e1e21a3027431d7ca6e4dcfd70fc7a3f' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -67,16 +67,5 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
   }
-}
+};

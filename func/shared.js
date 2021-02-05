@@ -9,7 +9,7 @@ export function getRandomReal(min, max) {
 }
 
 export function timeWait(timeout) {
-  return new Promise( resolve => {
-    setTimeout( () => resolve(), timeout);
+  return new Promise(resolve => {
+    setTimeout(() => resolve(), timeout);
   });
 }

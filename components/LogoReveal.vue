@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { TimelineLite, CSSPlugin } from 'gsap/all';
+import { gsap } from 'gsap';
 import Rectsq from '~/components/Rectsq';
 import SharedButton from '~/components/SharedButton';
 import { timeWait } from '~/func/shared';
@@ -41,20 +41,15 @@ export default {
 
   },
   watch: {
-    switched(){
-      //TODO: fade out current, change background-image, fade in with rescale
+    switched() {
+      // TODO: fade out current, change background-image, fade in with rescale
     },
   },
-
-
-  async mounted() {
-  },
   methods: {
-    doAnimate(){
+    doAnimate() {
       const { logo, shadower, section, desc } = this.$refs;
-      console.log("Entering SECTION");
-      this.timeline = new TimelineLite({
-        onComplete: () => this.animationState = true,
+      this.timeline = gsap.timeline({
+        onComplete: () => { this.animationState = true; },
       });
       this.timeline.from([logo, shadower], 1.67, {
         y: '+=22',
@@ -64,14 +59,16 @@ export default {
         y: '+=18',
       }, 0.54).to([logo, shadower], 1.47, {
         opacity: 1,
-      }, 0).to(section, 1.17, {
-        opacity: 1,
-      }, 0.12).to(desc, 1, {
-        opacity: 1,
-      }, 0.5);
+      }, 0)
+        .to(section, 1.17, {
+          opacity: 1,
+        }, 0.12)
+        .to(desc, 1, {
+          opacity: 1,
+        }, 0.5);
     },
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>

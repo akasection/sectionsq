@@ -3,8 +3,9 @@
 </template>
 
 <script>
-import { TimelineLite, CSSPlugin } from 'gsap/all';
+import { gsap } from 'gsap';
 import { timeWait } from '~/func/shared';
+
 const scaleFactor = 0.09;
 const oF = 0.8;
 export default {
@@ -31,28 +32,32 @@ export default {
     }
   },
   data: () => ({
-    timeline: null,
+    timeline: gsap.timeline(),
     currentDeg: 0,
   }),
   computed: {
     rotatorStyle() {
-      return `transform: translate3d(${this.shift}) rotate(${this.deg}deg) scale(${this.scale}); opacity: ${1 - ((1-oF) * this.reverse)}`;
+      return `transform: translate3d(${this.shift}) rotate(${this.deg}deg) scale(${this.scale}); opacity: ${1 - ((1 - oF) * this.reverse)}`;
     },
   },
   watch: {
     stop() {
-      console.log("Done.");
+      // eslint-disable-next-line no-console
+      console.log('Done.');
     },
   },
-  async mounted(){
+  async mounted() {
     const { sq } = this.$refs;
     this.currentDeg = this.deg;
     await this.$nextTick();
-    this.timeline = new TimelineLite({
+    this.timeline = gsap.timeline({
       onComplete: () => {
-        if (!this.stop) return this.timeline.restart();
+        if (!this.stop) {
+          this.timeline.restart();
+          return;
+        }
         this.$emit('outting');
-        TweenLite.to(sq, 2.2, {
+        gsap.to(sq, 2.2, {
           scale: 0,
           opacity: 0,
           rotation: '+= 90',
@@ -66,16 +71,16 @@ export default {
     this.timeline
       .to(sq, 1.1, {
         scale: this.scale > 1 ? `-=${scaleFactor}` : `+=${scaleFactor}`,
-        opacity: oF + ((1-oF) * this.reverse),
+        opacity: oF + ((1 - oF) * this.reverse),
         rotation: `+= ${45 * (this.reverse ? -1 : 1)}`
       })
-      .to(sq, 1.1,{
+      .to(sq, 1.1, {
         scale: this.scale > 1 ? `+=${scaleFactor}` : `-=${scaleFactor}`,
-        opacity: 1 - ((1-oF) * this.reverse),
+        opacity: 1 - ((1 - oF) * this.reverse),
         rotation: `+= ${45 * (this.reverse ? -1 : 1)}`
       });
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>

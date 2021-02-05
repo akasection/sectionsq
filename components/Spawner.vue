@@ -27,8 +27,6 @@ export default {
     this.spawnItems(this.indexer, fgCount, 'fg');
     this.spawnItems(this.indexer, mdCount, 'md');
     this.spawnItems(this.indexer, bgCount, 'bg');
-
-
   },
   methods: {
     async spawnItem(array, item) { // reuse item index
@@ -43,16 +41,14 @@ export default {
     },
     async spawnItems(array, startCount, key) {
       if (startCount === 0) return;
-      this.indexer.push({
-        key,
-        index: `${Date.now()}${key}`});
+      this.indexer.push({ key,
+        index: `${Date.now()}${key}` });
       await timeWait(getRandomInt(250, 1000));
       return this.spawnItems(array, startCount - 1, key);
     }
   },
 
-
-}
+};
 </script>
 
 <style lang="stylus" scoped>

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { TimelineLite, TweenLite } from 'gsap/all';
+import { gsap } from 'gsap';
 import { getRandomInt, getRandomReal } from '~/func/shared';
 
 const colorCycle = [
@@ -21,7 +21,7 @@ const colorCycle = [
   '#b7edff66', // dark blue
   '#b7edff66', // dark blue
   '#ffa2a266' // dark red
-  ];
+];
 const APosition = ['fg', 'md', 'bg'];
 export default {
   name: 'SpawnItem',
@@ -66,13 +66,13 @@ export default {
     const { square } = this.$refs;
     this.instantiate();
     await this.$nextTick();
-    this.timeline = new TimelineLite({
+    this.timeline = gsap.timeline({
       onComplete: () => {
         this.$emit('imdone', this);
       },
     });
     this.timeline
-      .fromTo(square, this.duration / 2000 , {
+      .fromTo(square, this.duration / 2000, {
         opacity: 0,
         scale: this.size,
       },
@@ -98,7 +98,7 @@ export default {
       this.accelerator = getRandomReal(0.5, 4);
     },
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>

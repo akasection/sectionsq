@@ -12,21 +12,18 @@
     transition(name="fade")
       span.sq-loading(ref="loader" v-if="!startShow" :disabled="preloadComplete" @click="goNext" :class="{ 'loading': !preloadComplete }") {{ text }}
 
-
     template(v-if="DEBUGGER")
       button(style="position: fixed; left: 10px; top: 10px;" @click="goNext") HELLO NIGGA
 </template>
 
 <script>
 import loadImage from 'image-promise';
-import { TimelineLite, CSSPlugin } from 'gsap/all';
-import { timeWait, r } from '~/func/shared';
-import Logo from '~/components/Logo'
-import LogoReveal from '~/components/LogoReveal'
-import Spawner from '~/components/Spawner'
-import Rotator from '~/components/Rotator'
+import { timeWait } from '~/func/shared';
+import Logo from '~/components/Logo';
+import LogoReveal from '~/components/LogoReveal';
+import Spawner from '~/components/Spawner';
+import Rotator from '~/components/Rotator';
 
-const plugins = [CSSPlugin];
 export default {
   name: 'Home',
   components: {
@@ -65,11 +62,11 @@ export default {
       clearInterval(this.iteratorFunction);
     },
     async preloadImages(val) {
-      let preloadPromise = [];
-      val.forEach( item => preloadPromise.push(loadImage(item)));
+      const preloadPromise = [];
+      val.forEach(item => preloadPromise.push(loadImage(item)));
       const preloadResponse = await Promise.all(preloadPromise);
       // console.log(preloadResponse);
-      this.text = "【 Enter 】";
+      this.text = '【 Enter 】';
       this.preloadComplete = true;
     }
   },
@@ -78,17 +75,17 @@ export default {
     const { loader } = this.$refs;
     // Loads all neccessary images
     const imagePreloaderPromise = [
-      import("~/assets/fb.png"),
-      import("~/assets/fb.svg"),
-      import("~/assets/gh.png"),
-      import("~/assets/logo.png"),
-      import("~/assets/sc.png"),
-      import("~/assets/si-logo-thicc.png"),
+      import('~/assets/fb.png'),
+      import('~/assets/fb.svg'),
+      import('~/assets/gh.png'),
+      import('~/assets/logo.png'),
+      import('~/assets/sc.png'),
+      import('~/assets/si-logo-thicc.png'),
     ];
     this.preloadImages = (await Promise.all(imagePreloaderPromise)).map(
       item => item.default
     );
-    this.iteratorFunction = setInterval( () => {
+    this.iteratorFunction = setInterval(() => {
       this.iterator = (this.iterator + 1) % 4;
     }, 800);
   },
@@ -103,7 +100,7 @@ export default {
       this.color = 'white';
     }
   },
-}
+};
 </script>
 
 <style lang="stylus">

@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import { TimelineLite, CSSPlugin } from 'gsap/all';
+import { gsap } from 'gsap';
 
 export default {
   name: 'LogoPrelaod',
@@ -22,24 +22,21 @@ export default {
 
   },
   watch: {
-    switched(){
-      //TODO: fade out current, change background-image, fade in with rescale
+    switched() {
+      // TODO: fade out current, change background-image, fade in with rescale
     },
   },
 
   async mounted() {
     const { logo } = this.$refs;
     await this.$nextTick();
-    this.timeline = new TimelineLite({
-
-    })
-    .to(logo, 2, {
+    this.timeline = gsap.to(logo, 2, {
       scale: 1.07,
       repeat: -1,
       yoyo: true,
     });
   },
-}
+};
 </script>
 
 <style lang="stylus" scoped>
