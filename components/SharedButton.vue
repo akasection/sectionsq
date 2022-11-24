@@ -6,7 +6,7 @@
   a(href="https://www.linkedin.com/in/akasection" target="_blank")
     .sq-button.ln
       img(src="~assets/in.png" width="16" height="16")
-  a(href="https://github.com/Axection" target="_blank")
+  a(href="https://github.com/akasection" target="_blank")
     .sq-button.gh
       img(src="~assets/gh.png" width="16" height="16")
   a(href="https://soundcloud.com/section" target="_blank")
