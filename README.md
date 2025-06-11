@@ -1,25 +1,75 @@
-# sectionsq
+# Nuxt Minimal Starter
 
-> SECTION Minimal Square Homepage
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Build Status
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c90806a4-e2c8-4a62-bb02-7b97374e1135/deploy-status)](https://app.netlify.com/sites/akasection/deploys)
+## Setup
 
-## Build Setup
+Make sure to install dependencies:
 
-``` bash
-# install dependencies
-$ yarn install
+```bash
+# npm
+npm install
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
+# pnpm
+pnpm install
 
-# build for production and launch server
-$ yarn run build
-$ yarn start
+# yarn
+yarn install
 
-# generate static project
-$ yarn run generate
+# bun
+bun install
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
+pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

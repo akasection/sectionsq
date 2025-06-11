@@ -5,16 +5,11 @@
   "javascript.preferences.quoteStyle": "single",
   "files.insertFinalNewline": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "javascript.preferences.importModuleSpecifierEnding": "minimal",
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "javascript.format.semicolons": "insert",
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
+  "css.customData": [".vscode/tailwind.json"]
 }
