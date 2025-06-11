@@ -1,1 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-serif: "Gelasio", serif;
+  /* --font-serif--font-feature-settings: "cv02", "cv03", "cv04", "cv11"; */
+  --font-serif--font-variation-settings: "wdth" 100;
+}
