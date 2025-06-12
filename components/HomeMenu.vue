@@ -3,33 +3,47 @@
     <ul>
       <li>
         <NuxtLink to="/">
-          <div class="menu-link menu--home"><span class="letter-lead">H</span>ome</div>
+          <div class="menu-link menu--home" :class="{ 'menu--selected': props.activeMenu === 'index' }">
+            <span class="menu-text-line"><span class="letter-lead">H</span>ome</span>
+          </div>
         </NuxtLink>
       </li>
       <li>
         <NuxtLink to="/about">
-          <div class="menu-link menu--about"><span class="letter-lead">A</span>bout</div>
+          <div class="menu-link menu--about" :class="{ 'menu--selected': props.activeMenu === 'about' }">
+            <span class="menu-text-line"><span class="letter-lead">A</span>bout</span>
+          </div>
         </NuxtLink>
       </li>
-      <NuxtLink to="/showcase">
-        <div class="menu-link menu--showcase"><span class="letter-lead">S</span>howcase</div>
-      </NuxtLink>
+      <li>
+        <NuxtLink to="/showcase">
+          <div class="menu-link menu--showcase" :class="{ 'menu--selected': props.activeMenu === 'showcase' }">
+            <span class="menu-text-line"><span class="letter-lead">S</span>howcase</span>
+          </div>
+        </NuxtLink>
+      </li>
       <li>
         <NuxtLink to="/blog">
-          <div class="menu-link menu--blog"><span class="letter-lead">B</span>log</div>
+          <div class="menu-link menu--blog" :class="{ 'menu--selected': props.activeMenu === 'blog' }">
+            <span class="menu-text-line"><span class="letter-lead">B</span>log</span>
+          </div>
         </NuxtLink>
       </li>
     </ul>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const props = defineProps<{
+  activeMenu?: 'index' | 'about' | 'showcase' | 'blog';
+}>();
+</script>
 
 <style scoped>
 @reference "../assets/css/main.css";
 
 :deep(*) {
-  --hover-content: 'something special';
+  --hover-content: 'A menu';
 }
 
 .letter-lead {
@@ -37,7 +51,12 @@
 }
 
 .menu-link {
-  @apply text-blue-500/50 lowercase mb-4 text-4xl font-serif tracking-[0.2rem] transition-all duration-75 w-full relative;
+  @apply text-blue-500/50 lowercase mb-4 text-4xl font-serif tracking-[0.2rem] transition-all duration-75 w-full relative z-10;
+
+  &::before {
+    @apply absolute top-0 left-0 w-full h-full bg-white/0 transition-all duration-300 scale-x-0 origin-left ease-out -z-10;
+    content: '';
+  }
 
   &.menu--about {
     --hover-content: 'Personal information about SECTION';
@@ -55,7 +74,8 @@
   }
 
   &::after {
-    @apply absolute text-sm text-blue-300/50 -bottom-4 font-medium -left-0.5 tracking-[0.1rem] pointer-events-none opacity-0 right-0.5 bg-white/0;
+    @apply absolute text-sm text-blue-300/50 -bottom-4 font-medium -left-0.5 tracking-[0.1rem]
+      pointer-events-none opacity-0 right-0.5 bg-white/0 transition-all duration-250 ease-in-out;
     content: var(--hover-content);
   }
 
@@ -68,6 +88,26 @@
 
     &::after {
       @apply opacity-100 translate-x-0.5 bg-white/70;
+    }
+  }
+
+  &.menu--selected {
+    @apply transition-[background] delay-300 text-white bg-blue-100/70 tracking-[0.24rem] z-10;
+
+    &::before {
+      @apply bg-blue-100/70 scale-x-100;
+    }
+
+    & .letter-lead {
+      @apply text-cyan-500/25 bg-transparent;
+    }
+
+    &::after {
+      @apply opacity-0 translate-x-0.5  transition-all;
+    }
+
+    &:hover::after {
+      @apply opacity-100;
     }
   }
 }

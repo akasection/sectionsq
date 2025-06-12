@@ -8,6 +8,17 @@
   </main>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+  pageTransition: {
+    name: 'slide-fade',
+    mode: 'in-out',
+    duration: {
+      enter: 75,
+      leave: 150,
+    },
+  },
+});
+</script>
 
 <style lang="scss" scoped></style>
