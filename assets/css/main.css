@@ -7,20 +7,35 @@
   --font-serif--font-variation-settings: "wdth" 100;
 }
 
+@theme {
+  --color-bluesq-50: oklch(96.62% 0.019 200.78);
+  --color-bluesq-100: oklch(93.88% 0.033 201.16);
+  --color-bluesq-200: oklch(87.53% 0.067 199.49);
+  --color-bluesq-300: oklch(81.65% 0.09 199.97);
+  --color-bluesq-400: oklch(75.89% 0.107 200.51);
+  --color-bluesq-500: oklch(69.94% 0.108 200.44);
+  --color-bluesq-600: oklch(58.95% 0.091 200.78);
+  --color-bluesq-700: oklch(48.09% 0.073 201.3);
+  --color-bluesq-800: oklch(36.86% 0.055 200.38);
+  --color-bluesq-900: oklch(24.04% 0.033 201.75);
+  --color-bluesq-950: oklch(17.71% 0.023 200.36);
+}
+
 /*
   Enter and leave animations can use different
   durations and timing functions.
 */
 .slide-fade-enter-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.3s;
+  opacity: 0;
 }
 
 .slide-fade-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  opacity: 1;
 }
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
+  @apply translate-y-20 opacity-0;
 }

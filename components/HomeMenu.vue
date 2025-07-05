@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[440px] min-w-32 m-8 p-4 bg-blue-200/10">
+  <div class="w-[440px] min-w-32 m-8 p-4 bg-blue-200/10 menu--base">
     <ul>
       <li>
         <NuxtLink to="/">
@@ -50,6 +50,10 @@ const props = defineProps<{
   @apply text-blue-500/30 bg-white/50 pl-1 mr-0.5 py-0;
 }
 
+.menu--base:hover .menu-link {
+  @apply mb-4;
+}
+
 .menu-link {
   @apply text-blue-500/50 lowercase mb-4 text-4xl font-serif tracking-[0.2rem] transition-all duration-75 w-full relative z-10;
 
@@ -80,10 +84,10 @@ const props = defineProps<{
   }
 
   &:hover {
-    @apply text-blue-600/20  translate-x-0.5 bg-white/70 tracking-[0.24rem];
+    @apply text-blue-600/20  translate-x-0.5 bg-white/70 tracking-[0.24rem] !mb-4;
 
     & .letter-lead {
-      @apply text-cyan-500/10 bg-transparent;
+      @apply text-bluesq-500/30 bg-transparent;
     }
 
     &::after {
@@ -99,7 +103,7 @@ const props = defineProps<{
     }
 
     & .letter-lead {
-      @apply text-cyan-500/25 bg-transparent;
+      @apply text-bluesq-500/25 bg-transparent;
     }
 
     &::after {

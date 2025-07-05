@@ -3,7 +3,7 @@
     <div class="fixed inset-0 bg-blue-200/10">
       <NuxtPage />
     </div>
-    <HomeMenu class="fixed right-8 bottom-8" :activeMenu="activeMenu" />
+    <HomeMenu class="fixed right-32 bottom-16" :activeMenu="activeMenu" />
   </main>
 </template>
 
