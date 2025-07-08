@@ -67,7 +67,7 @@ const props = defineProps<{
   }
 
   &.menu--home {
-    --hover-content: 'The start of SECTION';
+    --hover-content: 'Welcome to SECTION homepage';
   }
 
   &.menu--showcase {
@@ -78,8 +78,8 @@ const props = defineProps<{
   }
 
   &::after {
-    @apply absolute text-sm text-bluesq-300 -bottom-full lg:-bottom-4 font-medium -left-0.5 tracking-[0.1rem]
-      pointer-events-none opacity-0 right-0.5 bg-white/0 transition-all duration-250 ease-in-out;
+    @apply absolute text-sm text-bluesq-300/75 -bottom-full lg:-bottom-4 font-light -left-0.5 tracking-[0.1rem]
+      pointer-events-none opacity-0 right-0.5 bg-white/0 transition-all duration-250 ease-in-out -z-10;
     content: var(--hover-content);
   }
 
