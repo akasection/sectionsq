@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-serif: "Gelasio", serif;
   /* --font-serif--font-feature-settings: "cv02", "cv03", "cv04", "cv11"; */
   --font-serif--font-variation-settings: "wdth" 100;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 @theme {
@@ -38,4 +41,20 @@
 .slide-fade-enter-from,
 .slide-fade-leave-to {
   @apply translate-y-20 opacity-0;
+}
+
+.sq-content {
+  @apply text-bluesq-700;
+
+  & h1 {
+    @apply text-3xl font-serif font-semibold mb-4;
+  }
+
+  & p {
+    @apply text-base font-sans mb-2 leading-7;
+  }
+}
+
+.letter-lead--title {
+  @apply text-bluesq-400 px-1 bg-bluesq-50 p-1 border-solid;
 }
