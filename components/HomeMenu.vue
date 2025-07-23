@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:w-[440px] lg:min-w-32 min-w-32 m-8 p-4 bg-bluesq-200/10 menu--base">
+  <div class="lg:w-[440px] lg:min-w-32 min-w-32 m-8 p-4 bg-bluesq-300/20 menu--base">
     <ul>
       <li>
         <NuxtLink to="/">
@@ -55,7 +55,7 @@ const props = defineProps<{
 }
 
 .menu-link {
-  @apply text-bluesq-400 lowercase mb-4 text-4xl font-serif tracking-[0.2rem] transition-all duration-75 w-full relative z-10;
+  @apply text-bluesq-500 lowercase mb-4 text-4xl font-serif tracking-[0.2rem] py-0.5 transition-all duration-75 w-full relative z-10;
 
   &::before {
     @apply absolute top-0 left-0 w-full h-full bg-white/0 transition-all duration-300 scale-x-0 origin-left ease-out -z-10;
@@ -78,7 +78,7 @@ const props = defineProps<{
   }
 
   &::after {
-    @apply absolute text-sm text-bluesq-300/75 -bottom-full lg:-bottom-4 font-light -left-0.5 tracking-[0.1rem]
+    @apply absolute text-sm text-bluesq-400/75 pl-0.5 -bottom-full lg:-bottom-4 font-light -left-0.5 tracking-[0.1rem]
       pointer-events-none opacity-0 right-0.5 bg-white/0 transition-all duration-250 ease-in-out -z-10;
     content: var(--hover-content);
   }
@@ -96,10 +96,10 @@ const props = defineProps<{
   }
 
   &.menu--selected {
-    @apply transition-[background] delay-300 text-white bg-bluesq-300/40 tracking-[0.24rem] z-10;
+    @apply transition-[background] delay-300 text-white bg-bluesq-300/50 tracking-[0.24rem] z-10;
 
     &::before {
-      @apply bg-bluesq-300/40 scale-x-100;
+      @apply bg-bluesq-300 scale-x-100;
     }
 
     & .letter-lead {
