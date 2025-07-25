@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --font-serif: "Gelasio", serif;
+  --font-serif: 'Gelasio', serif;
   /* --font-serif--font-feature-settings: "cv02", "cv03", "cv04", "cv11"; */
-  --font-serif--font-variation-settings: "wdth" 100;
+  --font-serif--font-variation-settings: 'wdth' 100;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue,
+    Arial, Noto Sans, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 @theme {
@@ -46,6 +47,30 @@
   --color-bgsq-800: oklch(52.98% 0.262 262.79);
   --color-bgsq-900: oklch(35.64% 0.176 262.81);
   --color-bgsq-950: oklch(27.61% 0.136 262.78);
+
+  --color-redsq-50: oklch(92.68% 0.038 9.86);
+  --color-redsq-100: oklch(90.31% 0.051 13.65);
+  --color-redsq-200: oklch(83.85% 0.089 19.12);
+  --color-redsq-300: oklch(78.3% 0.128 15.61);
+  --color-redsq-400: oklch(72.89% 0.171 11.75);
+  --color-redsq-500: oklch(67.51% 0.223 7.78);
+  --color-redsq-600: oklch(62.71% 0.253 3.53);
+  --color-redsq-700: oklch(56.41% 0.229 359.25);
+  --color-redsq-800: oklch(50.21% 0.206 355.78);
+  --color-redsq-900: oklch(43.73% 0.181 352.55);
+  --color-redsq-950: oklch(40.23% 0.168 349.81);
+
+  --color-yellowsq-50: oklch(95.53% 0.077 96.32);
+  --color-yellowsq-100: oklch(94.67% 0.104 98.63);
+  --color-yellowsq-200: oklch(93.79% 0.137 100.54);
+  --color-yellowsq-300: oklch(89.25% 0.187 101.46);
+  --color-yellowsq-400: oklch(84.23% 0.176 100.8);
+  --color-yellowsq-500: oklch(79.92% 0.166 99.3);
+  --color-yellowsq-600: oklch(75.67% 0.157 98.51);
+  --color-yellowsq-700: oklch(70.65% 0.146 97.93);
+  --color-yellowsq-800: oklch(66.27% 0.137 96.88);
+  --color-yellowsq-900: oklch(61.07% 0.126 96);
+  --color-yellowsq-950: oklch(59.45% 0.122 95.49);
 }
 
 /*
@@ -80,8 +105,17 @@
 }
 
 .page--title {
-  @apply mt-32 mb-16 pl-8 text-5xl font-serif tracking-[0.1rem] underline underline-offset-8 decoration-1 text-bluesq-400 decoration-bluesq-400 lowercase;
+  @apply mt-32 mb-16 pl-8 text-5xl font-serif tracking-[0.1rem] text-bluesq-400 lowercase;
+
+  & :not(.letter-lead--title) {
+    @apply underline underline-offset-8 decoration-1 decoration-bluesq-400;
+  }
+
+  .letter-lead--title {
+    @apply text-redsq-300 px-1 bg-redsq-50/25 underline decoration-2 underline-offset-8 decoration-redsq-300;
+  }
 }
-.letter-lead--title {
-  @apply text-bluesq-500 px-1 bg-bluesq-50 p-1 border-solid !decoration-0;
+
+.bg-plus-sq {
+  background-image: url('/plus-sq.svg');
 }

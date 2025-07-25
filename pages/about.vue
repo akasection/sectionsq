@@ -8,7 +8,7 @@
         <span>bout</span>
       </div>
       <ContentRenderer class="sq-content" v-if="about" :value="about"></ContentRenderer>
-      <div v-else>Content not found</div>
+      <ContentNotFound v-else />
     </div>
   </main>
 </template>
