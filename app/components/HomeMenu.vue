@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:w-[440px] lg:min-w-32 min-w-32 m-8 p-4 bg-bluesq-300/20 menu--base">
+  <div class="xl:w-[440px] lg:w-[340px] min-w-32 m-8 p-4 bg-bluesq-300/20 menu--base backdrop-blur-sm">
     <ul>
       <li>
         <NuxtLink to="/">
@@ -79,7 +79,7 @@ const props = defineProps<{
 
   &::after {
     @apply absolute text-sm text-bluesq-400/75 pl-0.5 -bottom-full lg:-bottom-4 font-light -left-0.5 tracking-[0.1rem]
-      pointer-events-none opacity-0 right-0.5 bg-white/0 transition-all duration-250 ease-in-out -z-10;
+      pointer-events-none opacity-0 right-0.5 bg-white/0 transition-all duration-250 ease-in-out z-100;
     content: var(--hover-content);
   }
 

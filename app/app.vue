@@ -3,7 +3,10 @@
     <div class="fixed inset-0 bg-bgsq-700/6 bg-plus-sq">
       <NuxtPage />
     </div>
-    <HomeMenu class="fixed right-8 lg:right-32 bottom-8 lg:bottom-16" :activeMenu="activeMenu" />
+    <HomeMenu
+      class="transition-all duration-200 fixed right-8 xl:right-32 bottom-8 lg:bottom-16"
+      :activeMenu="activeMenu"
+    />
   </main>
 </template>
 

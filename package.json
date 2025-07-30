@@ -10,8 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "7.x",
+    "@fortawesome/free-solid-svg-icons": "^7.x",
     "@nuxt/content": "^3.6.3",
     "@tailwindcss/vite": "^4.1.11",
+    "@vesp/nuxt-fontawesome": "2.0.0-rc.2",
     "better-sqlite3": "^12.2.0",
     "nuxt": "^4.0.0",
     "tailwindcss": "^4.1.11",

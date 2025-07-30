@@ -8,5 +8,12 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  modules: ['@nuxt/content'],
+  modules: ['@nuxt/content', '@vesp/nuxt-fontawesome'],
+
+  fontawesome: {
+    addCss: true,
+    icons: {
+      solid: ['question', 'circle-question'],
+    },
+  },
 });

@@ -78,34 +78,46 @@
   durations and timing functions.
 */
 .slide-fade-enter-active {
-  transition: all 0.3s;
-  opacity: 0;
+  transition: all 0.15s;
+  opacity: 1;
+  @apply fixed top-0;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-  opacity: 1;
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  opacity: 0;
+  @apply fixed top-0;
 }
 
-.slide-fade-enter-from,
+.slide-fade-enter-from {
+  @apply translate-y-2;
+}
 .slide-fade-leave-to {
-  @apply translate-y-20 opacity-0;
+  @apply -translate-y-2;
 }
 
 .sq-content {
   @apply text-bluesq-700;
 
   & h1 {
-    @apply text-3xl font-serif font-semibold mb-4;
+    @apply text-3xl font-serif font-semibold mb-4 mt-8;
+  }
+
+  & h2 {
+    @apply text-xl font-serif font-semibold mb-4 mt-6;
   }
 
   & p {
-    @apply text-base font-sans mb-2 leading-7;
+    @apply text-base font-sans mb-3 leading-7;
+  }
+
+  & a {
+    @apply text-redsq-400 underline decoration-redsq-100 underline-offset-2 hover:text-redsq-600 transition-colors duration-100 ease-in-out;
   }
 }
 
 .page--title {
-  @apply mt-32 mb-16 pl-8 text-5xl font-serif tracking-[0.1rem] text-bluesq-400 lowercase;
+  @apply mt-32 mb-16 pl-8 text-5xl font-serif tracking-[.1rem] text-bluesq-400 lowercase;
 
   & :not(.letter-lead--title) {
     @apply underline underline-offset-8 decoration-1 decoration-bluesq-400;
@@ -118,4 +130,11 @@
 
 .bg-plus-sq {
   background-image: url('/plus-sq.svg');
+}
+
+.container-sq {
+  @apply px-10 xl:px-32 top-0 bottom-0 xl:inset-x-16 min-w-sm w-[75%] lg:min-w-lg lg:w-[51%] fixed
+    bg-white overflow-y-auto drop-shadow-2xl drop-shadow-bluesq-200;
+
+  @apply border-x-2 border-bgsq-400/20;
 }

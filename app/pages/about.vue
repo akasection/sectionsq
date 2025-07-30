@@ -1,7 +1,5 @@
 <template>
-  <main
-    class="px-10 top-0 bottom-0 lg:inset-x-16 min-w-sm w-[75%] lg:min-w-lg lg:w-[50%] fixed bg-white/92 overflow-y-auto"
-  >
+  <main class="container-sq">
     <div class="relative pt-0 pb-8">
       <div class="page--title">
         <span class="letter-lead--title">A</span>
@@ -21,8 +19,8 @@ definePageMeta({
     name: 'slide-fade',
     mode: 'in-out',
     duration: {
-      enter: 75,
-      leave: 150,
+      enter: 150,
+      leave: 300,
     },
   },
 });
