@@ -9,7 +9,7 @@ keywords: rashemi, rafsanjany, frontend, ui, ux, web development
 
 I am a highly experienced, senior frontend engineer with **8+** years of developing web based products, ranged from enterprise application (SaaS and Administration) to end-user products (marketplace with 2mil+ users and O2O with 200k+ users). Already proficient on delivering performance sensitive web applications and rich, highly-decorated UI/UX websites.
 
-I work on designing hi-level frontend architecture and development plan on any scale, adjustable from rapid, agile development to long-term, robust application suite. I am also experienced in transforming/migrating legacy codebase and services into new, with pragmatically modern stacks, such as _(not limited to)_ **Vue/React, Typescript and TailwindCSS**, and later will be tracked its performance and maintainability using industrial-grade tools, such as **Lighthouse and Sentry**.
+I work on designing hi-level frontend architecture and development plan on any scale, adjustable from rapid, agile development to long-term, robust application suite. I am also experienced in transforming/migrating legacy codebase and services into new, with pragmatically modern stacks, such as _(not limited to)_ **Vue/React, Typescript and TailwindCSS**, and later will be tracked its performance and maintainability using industrial-grade tools, such as **Lighthouse** and **Sentry**.
 
 ## Proficiency
 
@@ -24,7 +24,7 @@ I work on designing hi-level frontend architecture and development plan on any s
 - **Web Basics**: HTML, CSS, Javascript
 - **Languages**: Typescript, HAML/Pug, SASS/Stylus, Markdown
 - **Build Tools**: Vite, Webpack, Rollup
-- **Frameworks**: Vue, React, Qwik, JQuery, TailwindCSS,
+- **Frameworks**: Vue, React, Qwik, JQuery, TailwindCSS, GSAP
 - **Server Frameworks**: Nuxt, NextJS
 - **Web Features**: Progressive Web App (PWA), Offine First, Service/Web/Dedicated Worker, WebAssembly (WASM)
 - **Testing**: Jest/Vitest, Puppeteer/Playwright
@@ -36,7 +36,7 @@ I work on designing hi-level frontend architecture and development plan on any s
 
 ## Tech Stacks
 
-- **Gamedev**: Unity, C#, Godot, Lua, JASS/vJASS, WurstScript
+- **Gamedev**: Unity, C#, Godot, Lua, JASS/vJASS, WurstScript, FMOD
 - **Music Production**: FL Studio, Cakewalk
 - **Digital Artwork**: Affinity (Photo, Designer), Sketchbook/Concepts
 

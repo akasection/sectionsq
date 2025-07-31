@@ -97,10 +97,14 @@
 }
 
 .sq-content {
-  @apply text-bluesq-700;
+  @apply text-bluesq-800 tracking-wide leading-7;
 
   & h1 {
-    @apply text-3xl font-serif font-semibold mb-4 mt-8;
+    @apply text-bluesq-600 text-3xl font-serif font-semibold mb-4 mt-8;
+  }
+
+  & strong {
+    @apply text-bluesq-600;
   }
 
   & h2 {
@@ -108,11 +112,11 @@
   }
 
   & p {
-    @apply text-base font-sans mb-3 leading-7;
+    @apply text-base font-sans mb-3 tracking-wide leading-8;
   }
 
   & a {
-    @apply text-redsq-400 underline decoration-redsq-100 underline-offset-2 hover:text-redsq-600 transition-colors duration-100 ease-in-out;
+    @apply text-redsq-400 underline decoration-dotted decoration-redsq-100 underline-offset-2 hover:underline-offset-4 hover:text-redsq-600 transition-colors hover:-translate-y-1 duration-100 ease-in-out;
   }
 }
 
