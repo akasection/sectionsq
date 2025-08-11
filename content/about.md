@@ -13,11 +13,11 @@ I work on designing hi-level frontend architecture and development plan on any s
 
 ## Proficiency
 
-- Application Development
-- Frontend Architecture
-- Web Performance
+- Frontend Web Architecture
+- Web App Development
+- Web Performance/Site Reliability
 - Web Testing Automation
-- Frontend CI/CD
+- Frontend Service CI/CD
 
 ## Tech stacks
 
@@ -37,6 +37,7 @@ I work on designing hi-level frontend architecture and development plan on any s
 ## Tech Stacks
 
 - **Gamedev**: Unity, C#, Godot, Lua, JASS/vJASS, WurstScript, FMOD
+- **Software Development**: .NET (C#), Electron, Telerik
 - **Music Production**: FL Studio, Cakewalk
 - **Digital Artwork**: Affinity (Photo, Designer), Sketchbook/Concepts
 
