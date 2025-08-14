@@ -35,8 +35,8 @@
 
 <script lang="ts" setup>
 const props = defineProps<{
-  activeMenu?: 'index' | 'about' | 'showcase' | 'blog';
-}>();
+  activeMenu?: 'index' | 'about' | 'showcase' | 'blog'
+}>()
 </script>
 
 <style scoped>

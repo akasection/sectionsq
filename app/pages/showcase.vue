@@ -20,11 +20,11 @@ definePageMeta({
       leave: 150,
     },
   },
-});
+})
 
 const { data: showcaseList } = await useAsyncData('showcase', () =>
   queryCollection('content').path('/showcase').first()
-);
+)
 </script>
 
 <style scoped>

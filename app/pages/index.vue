@@ -1,9 +1,9 @@
 <template>
-  <div></div>
+  <div />
 </template>
 
 <script lang="ts" setup>
-const route = useRoute();
+const route = useRoute()
 
 definePageMeta({
   pageTransition: {
@@ -14,7 +14,7 @@ definePageMeta({
       leave: 150,
     },
   },
-});
+})
 </script>
 
 <style scoped></style>

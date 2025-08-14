@@ -10,6 +10,7 @@
   "javascript.preferences.importModuleSpecifierEnding": "minimal",
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "javascript.format.semicolons": "insert",
+  "eslint.useFlatConfig": true,
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
   "css.customData": [".vscode/tailwind.json"]
 }

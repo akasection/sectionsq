@@ -20,7 +20,7 @@ definePageMeta({
       leave: 150,
     },
   },
-});
+})
 </script>
 
 <style scoped>

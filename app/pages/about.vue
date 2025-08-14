@@ -5,14 +5,18 @@
         <span class="letter-lead--title">A</span>
         <span>bout</span>
       </div>
-      <ContentRenderer class="sq-content" v-if="about" :value="about"></ContentRenderer>
+      <ContentRenderer
+        v-if="about"
+        class="sq-content"
+        :value="about"
+      />
       <ContentNotFound v-else />
     </div>
   </main>
 </template>
 
 <script lang="ts" setup>
-import { ContentRenderer } from '#components';
+import { ContentRenderer } from '#components'
 
 definePageMeta({
   pageTransition: {
@@ -23,9 +27,9 @@ definePageMeta({
       leave: 300,
     },
   },
-});
+})
 
-const { data: about } = await useAsyncData('about', () => queryCollection('content').path('/about').first());
+const { data: about } = await useAsyncData('about', () => queryCollection('content').path('/about').first())
 </script>
 
 <style scoped>

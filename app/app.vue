@@ -5,14 +5,14 @@
     </div>
     <HomeMenu
       class="transition-all duration-200 fixed right-8 xl:right-32 bottom-8 lg:bottom-16"
-      :activeMenu="activeMenu"
+      :active-menu="activeMenu"
     />
   </main>
 </template>
 
 <script lang="ts" setup>
-const route = useRoute();
+const route = useRoute()
 
 // unnecessary but useful for type inference
-const activeMenu = computed(() => route.name as 'index' | 'about' | 'showcase' | 'blog');
+const activeMenu = computed(() => route.name as 'index' | 'about' | 'showcase' | 'blog')
 </script>
